@@ -1,0 +1,18 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  }
+  body{
+	background-color: gray;
+  }
+  
+  .App-header{
+	color: #ffe100 ;
+	text-align: center;
+  }
+  
+  .menu-container{
+	width: 65vw;
+	margin: 0.75rem auto 0 auto;
+  }

@@ -4,7 +4,7 @@ function updateDate() {
     var currentTime = new Date().toString();
     var colortext = color_pool[Math.floor(Math.random() * 6)];
     var colorbg = color_pool[Math.floor(Math.random() * 6)];
-    while(colortext == colorbg || prev == colortext){
+    if(colortext == colorbg || prev == colortext){
         colortext = color_pool[Math.floor(Math.random() * 6)];
     }
     postMessage([currentTime, colortext, colorbg]);

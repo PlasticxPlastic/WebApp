@@ -5,13 +5,6 @@
     <div id="main_container">
     </div>
     <script>
-        var color = ["tomato", "orange", "dodgerblue", "mediumseagreen", "grey", "slateblue", "violet", "lightgray"];
-        var color_now = 0;
-        var change_color = () => {
-            date_and_time.style.backgroundColor = color[color_now];
-            color_now += 1;
-            color_now %= color.length;
-        };
         //CREATE MAIN_CONTAINER
         var main_container = document.getElementById('main_container');
 
@@ -27,16 +20,17 @@
         //SETTING MOVE PARAMETER
         var moved = false;
         var worker;
+        
         //BUTTON MOVE EVENT
         button.addEventListener("click", function() {
         if (!moved) {
-            worker = new Worker("./index.js");
+            worker = new Worker("./worker.js");
             worker.onmessage = (event) => {
-                button.textContent = (event.data)[0];
-                button.style.backgroundColor = (event.data)[1];
-                button.style.color = (event.data)[2];
+                button.textContent = event.data[0];
+                button.style.backgroundColor = event.data[1];
+                button.style.color = event.data[2];
             }
-            button.style.border ="2px solid black"
+            button.style.border ="2px solid black";
             button.style.position = "fixed";
             button.style.top = "0";
             button.style.right = "0";
